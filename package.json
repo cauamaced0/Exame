@@ -1,0 +1,20 @@
+{
+  "name": "exame-1",
+  "version": "1.0.0",
+  "description": "Exame de Programaçao para internet ainda nao entendi como isso funciona",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cauamaced0/Exame.git"
+  },
+  "author": "CAua Macedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cauamaced0/Exame/issues"
+  },
+  "homepage": "https://github.com/cauamaced0/Exame#readme"
+}
