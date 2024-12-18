@@ -4,6 +4,8 @@ const host= "0.0.0.0"; // Funcionara em todas as redes do computador
 const porta = 3050;
 const app= express();
 
+app.use(express.urlencoded({extended: true}))
+
 let listaInteressados = [];
 let listaPets = [];
 
@@ -209,6 +211,7 @@ function cadastraInterressado(req,resp)
 resp.write(`</tbody>
             </table>
             <a class="btn btn-primary" href="/cadastroInteressado">Continuar cadastro</a>
+            <a class="btn btn-secondary" href="/">MENU</a>
             </body>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
             </html> 
@@ -219,7 +222,50 @@ resp.end();
 
 function cadastraPets(req,resp)
 {
-    resp.send(``);
+    const nome = req.body.nome_p;
+    const raca = req.body.raca;
+    const idade = req.body.idade;
+    
+
+    const PET = {nome, raca, idade};
+    
+    listaInteressados.push(Interresado);
+
+    resp.write(`<html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Interessados Cadastrados</title>
+            <link href="<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">"
+        </head>
+        <body>
+        <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">raca</th>
+                <th scope="col">idade</th>
+                
+            </tr>
+        </thead>
+        <tbody>`);
+        for(var i=0;i< listaPets.length;i++)
+            {
+                resp.write(`<tr>
+                            <td>${listaInteressados[i].nome}</td>
+                            <td>${listaInteressados[i].raca}</td>
+                            <td>${listaInteressados[i].idade}</td>                             
+                  </tr>  `)
+            }
+resp.write(`</tbody>
+            </table>
+            <a class="btn btn-primary" href="/cadastroInteressado">Continuar cadastro</a>
+            <a class="btn btn-secondary" href="/">MENU</a>
+            </body>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            </html> 
+            `);
+resp.end();
+
 }
 
 app.get("/",menu);
