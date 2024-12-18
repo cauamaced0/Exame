@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/cauamaced0/Exame/issues"
   },
-  "homepage": "https://github.com/cauamaced0/Exame#readme"
+  "homepage": "https://github.com/cauamaced0/Exame#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
